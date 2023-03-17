@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  rembg:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    ports:
+      - "5000:8500"
+    networks:
+      - bgapi
+    restart: always
+    volumes:
+      - "./.u2net:/root/.u2net"
+    command: s
+
+
+networks:
+  bgapi:
+    name: rembgapi
